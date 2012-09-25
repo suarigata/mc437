@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Data:</b>
+  <%= @log_geral.data %>
+</p>
+
+<p>
+  <b>Sistema:</b>
+  <%= @log_geral.sistema %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @log_geral.user %>
+</p>
+
+<p>
+  <b>Tipolog:</b>
+  <%= @log_geral.tipolog %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @log_geral.desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_log_geral_path(@log_geral) %> |
+<%= link_to 'Back', log_gerals_path %>

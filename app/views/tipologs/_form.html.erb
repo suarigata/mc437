@@ -1,0 +1,21 @@
+<%= form_for(@tipolog) do |f| %>
+  <% if @tipolog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tipolog.errors.count, "error") %> prohibited this tipolog from being saved:</h2>
+
+      <ul>
+      <% @tipolog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

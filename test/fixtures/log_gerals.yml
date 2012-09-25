@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  data: 2012-09-25 00:48:21
+  sistema: 1
+  user: 1
+  tipolog: 1
+  desc: MyText
+
+two:
+  data: 2012-09-25 00:48:21
+  sistema: 1
+  user: 1
+  tipolog: 1
+  desc: MyText

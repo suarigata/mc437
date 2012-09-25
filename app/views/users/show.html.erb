@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cpf:</b>
+  <%= @user.cpf %>
+</p>
+
+<p>
+  <b>Senha:</b>
+  <%= @user.senha %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @user.nome %>
+</p>
+
+<p>
+  <b>Rg:</b>
+  <%= @user.rg %>
+</p>
+
+<p>
+  <b>Dica senha:</b>
+  <%= @user.dica_senha %>
+</p>
+
+<p>
+  <b>Resposta dica senha:</b>
+  <%= @user.resposta_dica_senha %>
+</p>
+
+<p>
+  <b>Email 1:</b>
+  <%= @user.email_1 %>
+</p>
+
+<p>
+  <b>Email 2:</b>
+  <%= @user.email_2 %>
+</p>
+
+<p>
+  <b>Usertype:</b>
+  <%= @user.usertype %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @user.status %>
+</p>
+
+<p>
+  <b>Sistema:</b>
+  <%= @user.sistema %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

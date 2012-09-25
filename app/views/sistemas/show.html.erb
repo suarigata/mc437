@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @sistema.nome %>
+</p>
+
+<p>
+  <b>Key:</b>
+  <%= @sistema.key %>
+</p>
+
+
+<%= link_to 'Edit', edit_sistema_path(@sistema) %> |
+<%= link_to 'Back', sistemas_path %>

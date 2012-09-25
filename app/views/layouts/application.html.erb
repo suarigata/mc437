@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Autentica&ccedil;&atilde;o</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body> 
+    <div id="wrapper"> 
+      <div id="bg"> 
+        <div id="header"></div>  
+        <div id="page"> 
+          <div id="container"> 
+            <!-- banner -->  
+            <div id="banner"></div>  
+            <!-- end banner -->  
+            <!--  content -->  
+            <div id="content"> 
+              <div id="left"> 
+                <div id="sidebar"> 
+                  <ul class="vmenu">
+                    <li>
+                      <a href="/users" shape="rect">Usu&aacute;rios</a>
+                    </li>
+                    <li>
+                      <a href="/sistemas" shape="rect">Sistemas</a>
+                    </li>
+                    <li>
+                      <a href="/usertypes" shape="rect">Tipos de Usu&aacute;rios</a>
+                    </li>
+                  </ul> 
+                </div> 
+              </div>  
+              <div id="center"> 
+                <div id="welcome"> 
+                  <%= yield %>
+                  <p style="clear:both" /> 
+                </div> 
+              </div>  
+              <div style="clear:both;height:40px"></div> 
+            </div>  
+            <!-- end content --> 
+          </div>  
+          <!-- end container --> 
+        </div>  
+        <div id="footerWrapper"> 
+          <div id="footer"> 
+            <p style="padding-top:10px;"> 
+              <a href="#" shape="rect">Home</a> | 
+              <a href="#" shape="rect">Products</a> | 
+              <a href="#" shape="rect">Services</a> | 
+              <a href="#" shape="rect">News</a> | 
+              <a href="#" shape="rect">About</a> 
+            </p>  
+            <p> 
+              <!-- 
+DO NOT REMOVE OR MODIFY THE FOOTER LINK BELOW.
+If you want to remove this link please make a 10 dollars donation at www.dotemplate.com
+-->  
+              <a href="http://www.dotemplate.com" shape="rect">Templates</a> maker
+            </p> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </body>
+</html>

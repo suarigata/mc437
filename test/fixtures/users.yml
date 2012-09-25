@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cpf: MyString
+  senha: MyString
+  nome: MyString
+  rg: MyString
+  dica_senha: MyString
+  resposta_dica_senha: MyString
+  email_1: MyString
+  email_2: MyString
+  usertype: 1
+  status: 1
+  sistema: 1
+
+two:
+  cpf: MyString
+  senha: MyString
+  nome: MyString
+  rg: MyString
+  dica_senha: MyString
+  resposta_dica_senha: MyString
+  email_1: MyString
+  email_2: MyString
+  usertype: 1
+  status: 1
+  sistema: 1

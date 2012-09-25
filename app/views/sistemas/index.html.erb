@@ -1,0 +1,25 @@
+<h1>Listing sistemas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sistemas.each do |sistema| %>
+  <tr>
+    <td><%= sistema.nome %></td>
+    <td><%= sistema.key %></td>
+    <td><%= link_to 'Show', sistema %></td>
+    <td><%= link_to 'Edit', edit_sistema_path(sistema) %></td>
+    <td><%= link_to 'Destroy', sistema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sistema', new_sistema_path %>
