@@ -1,13 +1,19 @@
                     <li>
-                      <a href="/" shape="rect">Home</a>
+                      <%= link_to "Home", home_index_path %>
                     </li>
                     <li>
-                      <a href="/sistemas" shape="rect">Sistemas</a>
+                      <%= link_to "Users", users_path %>
                     </li>
                     <li>
-                      <a href="/usertypes" shape="rect">Tipos de Usu&aacute;rios</a>
+                      <%= link_to "UserTypes", usertypes_path %>
                     </li>
                     <li>
-                      <a href="/" shape="rect">aa</a>
+                      <%= link_to "Status", statuses_path %>
                     </li>
-                    <%= @_current_user.id %>
+                    <li>
+                      <%= link_to "TipoLog", tipologs_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Logout", home_index_path %>
+                    </li>
+                    <!--%= @_current_user.id %-->
