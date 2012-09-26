@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925034821) do
+ActiveRecord::Schema.define(:version => 20120926031421) do
 
   create_table "log_gerals", :force => true do |t|
     t.datetime "data"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20120925034821) do
     t.integer  "user"
     t.integer  "tipolog"
     t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "logins", :force => true do |t|
+    t.string   "cpf"
+    t.string   "senha"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
