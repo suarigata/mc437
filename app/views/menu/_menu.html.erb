@@ -4,6 +4,12 @@
                       <%= link_to "Home", home_index_path %>
                     </li>
                     <li>
+                      <%= link_to "Alterar Cadastro", edit_user_path(@_current_user.id ) %>
+                    </li>
+                    <li>
+                      <%= link_to "Excluir Cadastro", user_path(@_current_user.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </li>
+                    <li>
                       <%= link_to "Users", users_path %>
                     </li>
                     <li>
