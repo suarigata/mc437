@@ -7,7 +7,7 @@
                       <%= link_to "Alterar Cadastro", edit_user_path(@_current_user.id ) %>
                     </li>
                     <li>
-                      <%= link_to "Excluir Cadastro", user_path(@_current_user.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to "Excluir Cadastro", user_path(@_current_user.id ), method: :delete, data: { confirm: 'Desativar cadastro?' } %>
                     </li>
                     <li>
                       <%= link_to "Users", users_path %>
@@ -22,7 +22,7 @@
                       <%= link_to "TipoLog", tipologs_path %>
                     </li>
                     <li>
-                      <%= link_to "Logout", new_login_path %>
+                      <%= link_to "Logout", login_path(@_current_user.id ), method: :delete, data: { confirm: 'Deslogar?' } %>
                     </li>
                   </ul>
                   <!--%= @_current_user.id %-->

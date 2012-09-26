@@ -28,7 +28,12 @@ class LoginsController < ApplicationController
   # GET /logins/new.json
   def new
     @login = Login.new
-    session[:current_user_id] = nil
+    
+    if session[:current_user_id] != nil
+      redirect_to root_url
+      return
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @login }
@@ -80,6 +85,6 @@ class LoginsController < ApplicationController
     # Remove o id do usuário da sessão
     session[:current_user_id] = nil
     flash[:notice] = "Voce saiu do sistema"
-    redirect_to root_url
+    redirect_to new_login_path
   end
 end
