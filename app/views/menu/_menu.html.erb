@@ -1,3 +1,5 @@
+<% if @_current_user != nil %>
+                  <ul class="vmenu">
                     <li>
                       <%= link_to "Home", home_index_path %>
                     </li>
@@ -16,4 +18,6 @@
                     <li>
                       <%= link_to "Logout", new_login_path %>
                     </li>
-                    <!--%= @_current_user.id %-->
+                  </ul>
+                  <!--%= @_current_user.id %-->
+<% end %>
