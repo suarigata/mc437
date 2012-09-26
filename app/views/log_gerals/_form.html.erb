@@ -1,7 +1,7 @@
 <%= form_for(@log_geral) do |f| %>
   <% if @log_geral.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@log_geral.errors.count, "error") %> prohibited this log_geral from being saved:</h2>
+      <h2><%= pluralize(@log_geral.errors.count, "error") %> Proibido este log geral de ser salvo:</h2>
 
       <ul>
       <% @log_geral.errors.full_messages.each do |msg| %>

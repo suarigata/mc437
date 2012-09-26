@@ -1,16 +1,16 @@
-<h1>Listing users</h1>
+<h1>Lista Usu&aacute;rios</h1>
 
 <table>
   <tr>
-    <th>Cpf</th>
+    <th>CPF</th>
     <th>Senha</th>
     <th>Nome</th>
-    <th>Rg</th>
+    <th>RG</th>
     <th>Dica senha</th>
     <th>Resposta dica senha</th>
     <th>Email 1</th>
     <th>Email 2</th>
-    <th>Usertype</th>
+    <th>Tipo Usu&aacute;rio</th>
     <th>Status</th>
     <th>Sistema</th>
     <th></th>
@@ -31,9 +31,9 @@
     <td><%= user.usertype %></td>
     <td><%= user.status %></td>
     <td><%= user.sistema %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', user %></td>
+    <td><%= link_to 'Editar', edit_user_path(user) %></td>
+    <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Voc&ecirc; tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>

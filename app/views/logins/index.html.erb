@@ -1,8 +1,8 @@
-<h1>Listing logins</h1>
+<h1>Lista Logins</h1>
 
 <table>
   <tr>
-    <th>Cpf</th>
+    <th>CPF</th>
     <th>Senha</th>
     <th></th>
     <th></th>
@@ -13,12 +13,12 @@
   <tr>
     <td><%= login.cpf %></td>
     <td><%= login.senha %></td>
-    <td><%= link_to 'Show', login %></td>
-    <td><%= link_to 'Edit', edit_login_path(login) %></td>
-    <td><%= link_to 'Destroy', login, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', login %></td>
+    <td><%= link_to 'Editar', edit_login_path(login) %></td>
+    <td><%= link_to 'Apagar', login, method: :delete, data: { confirm: 'Voc&ecirc; tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 <br />
 
-<%= link_to 'New Login', new_login_path %>
+<%= link_to 'Novo Login', new_login_path %>

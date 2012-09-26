@@ -1,11 +1,11 @@
-<h1>Listing log_gerals</h1>
+<h1>Lista Log Gerais</h1>
 
 <table>
   <tr>
     <th>Data</th>
     <th>Sistema</th>
     <th>User</th>
-    <th>Tipolog</th>
+    <th>Tipo Log</th>
     <th>Desc</th>
     <th></th>
     <th></th>
@@ -19,13 +19,13 @@
     <td><%= log_geral.user %></td>
     <td><%= log_geral.tipolog %></td>
     <td><%= log_geral.desc %></td>
-    <td><%= link_to 'Show', log_geral %></td>
-    <td><%= link_to 'Edit', edit_log_geral_path(log_geral) %></td>
-    <td><%= link_to 'Destroy', log_geral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', log_geral %></td>
+    <td><%= link_to 'Editar', edit_log_geral_path(log_geral) %></td>
+    <td><%= link_to 'Apagar', log_geral, method: :delete, data: { confirm: 'Voc&ecirc; tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Log geral', new_log_geral_path %>
+<%= link_to 'Novo Log Geral', new_log_geral_path %>
