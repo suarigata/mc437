@@ -82,8 +82,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @eita = params[:id]
-    #@user.destroy
     @_current_user.status = 3
     @_current_user.save
     session[:current_user_id] = nil
@@ -94,5 +92,9 @@ class UsersController < ApplicationController
 #      format.html { redirect_to users_url }
 #      format.json { head :no_content }
 #    end
+  end
+  
+  def lock
+    
   end
 end
