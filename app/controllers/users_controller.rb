@@ -47,6 +47,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        
+        log = LogGeral.new
+        log.data=DateTime.now
+        log.tipolog=3
+        log.user=@user.id
+        log.save
+        
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -75,6 +82,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @eita = params[:id]
     #@user.destroy
     @_current_user.status = 3
     @_current_user.save

@@ -47,9 +47,9 @@ class LoginsController < ApplicationController
 
   
   def authenticate(login)
-      # Digest::SHA1.hexdigest(password) ==
-      return User.first(:conditions => "cpf = '#{login.cpf}' and senha = '#{login.senha}'")
-    end
+    # Digest::SHA1.hexdigest(password) ==
+    return User.first(:conditions => "cpf = '#{login.cpf}' and senha = '#{login.senha}'")
+  end
   
   
   # "Cria" um login, ou seja, "loga o usuário"
@@ -59,9 +59,26 @@ class LoginsController < ApplicationController
       flash[:notice] = "Voce entrou no sistema"
       # Registra o ID do usuário na sessão para que possa ser recuperado durante outras requisições
       session[:current_user_id] = user.id
+      
+      log = LogGeral.new
+      log.data=DateTime.now
+      log.tipolog=1
+      log.user=user.id
+      log.save
+      
       redirect_to root_url
     else
-      redirect_to root_url
+      flash[:notice] = "Erro no login"
+      
+      if user = User.find_by_cpf(login.cpf)
+        log = LogGeral.new
+        log.data=DateTime.now
+        log.tipolog=2
+        log.user=user.id
+        log.save
+      end
+      
+      redirect_to new_login_path
     end
   end
 
