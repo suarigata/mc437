@@ -121,6 +121,13 @@ class UsersController < ApplicationController
           usuario.senha = params[:senha]
           usuario.save
           flash[:notice] = "Senha alterada com sucesso"
+          
+          log = LogGeral.new
+          log.data=DateTime.now
+          log.tipolog=6
+          log.user=usuario.id
+          log.save
+          
           redirect_to new_login_path #tela login ou entra logado?
         else
           if params[:senha].length < 6
@@ -146,6 +153,13 @@ class UsersController < ApplicationController
           usuario.status = usuario.status + 1
           usuario.save
           flash[:notice] = "Usuario bloqueado com sucesso"
+          
+          log = LogGeral.new
+          log.data=DateTime.now
+          log.tipolog=4
+          log.user=usuario.id
+          log.sistema=@_current_user.sistema
+          log.save
         end
       else
         flash[:notice] = "CPF nao consta nos registros"
@@ -161,6 +175,13 @@ class UsersController < ApplicationController
           usuario.status=usuario.status-1
           usuario.save
           flash[:notice] = "Usuario desbloqueado com sucesso"
+          
+          log = LogGeral.new
+          log.data=DateTime.now
+          log.tipolog=5
+          log.user=usuario.id
+          log.sistema=@_current_user.sistema
+          log.save
         end
       else
         flash[:notice] = "CPF nao consta nos registros"

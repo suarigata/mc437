@@ -94,6 +94,12 @@ class LoginsController < ApplicationController
           user.status+=1
           user.save
           flash[:notice] = "Usu&aacute;rio bloqueado por errar cinco vezes a senha"
+          
+          log = LogGeral.new
+          log.data=DateTime.now
+          log.tipolog=4
+          log.user=user.id
+          log.save
         end
       end
       
