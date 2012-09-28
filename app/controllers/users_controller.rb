@@ -44,6 +44,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.status = 1
+    @user.usertype = 3
 
     respond_to do |format|
       if @user.save
@@ -67,6 +69,9 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    if(params[:usertype] != nil and params[:usertype] != 2)
+      params[:sistema] = nil # TODO isso nao funfa
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

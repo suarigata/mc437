@@ -43,6 +43,8 @@
     <%= f.label :email_2 %><br />
     <%= f.text_field :email_2 %>
   </div>
+  
+  <% if @_current_user != nil and @_current_user.usertype == 1 %>
   <div class="field">
     <%= f.label :usertype %><br />
     <%= collection_select(:user, :usertype, Usertype.all, :id, :nome) %>
@@ -55,6 +57,8 @@
     <%= f.label :sistema %><br />
     <%= collection_select(:user, :sistema, Sistema.all, :id, :nome) %>
   </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit("Salvar")%>
   </div>
