@@ -191,7 +191,11 @@ class UsersController < ApplicationController
   
   def relatorio
     if params[:tipolog] != nil
-      @logs = LogGeral.all(:conditions => "tipolog = #{params[:tipolog]}")
+      
+      @inicial = params[:start_date][:year] + "-" + params[:start_date][:month] + "-" + params[:start_date][:day]
+      @final = params[:end_date][:year] + "-" + params[:end_date][:month] + "-" + params[:end_date][:day]
+      
+      @logs = LogGeral.all(:conditions => "tipolog = #{params[:tipolog]} and data >= '#{@inicial}' and data <= '#{@final}'")
     end
   end
 end

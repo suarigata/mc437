@@ -89,18 +89,21 @@ class LoginsController < ApplicationController
         log.save
         
         log = LogGeral.last(:conditions => ["user = :usuario and tipolog = 1",{:usuario => user.id}])
-        numero = LogGeral.all(:conditions => ["user = :usuario and tipolog = 2 and data >= :logdata",{:usuario => user.id, :logdata => log.data}]).length
-        if numero > 4 and (user.status = 1 or user.status = 3)
-          user.status+=1
-          user.save
-          flash[:notice] = "Usu&aacute;rio bloqueado por errar cinco vezes a senha"
-          
-          log = LogGeral.new
-          log.data=DateTime.now
-          log.tipolog=4
-          log.user=user.id
-          log.save
+        if(log != nil)
+          numero = LogGeral.all(:conditions => ["user = :usuario and tipolog = 2 and data >= :logdata",{:usuario => user.id, :logdata => log.data}]).length
+          if numero > 4 and (user.status = 1 or user.status = 3)
+            user.status+=1
+            user.save
+            flash[:notice] = "Usu&aacute;rio bloqueado por errar cinco vezes a senha"
+            
+            log = LogGeral.new
+            log.data=DateTime.now
+            log.tipolog=4
+            log.user=user.id
+            log.save
+          end
         end
+        
       end
       
       redirect_to new_login_path
