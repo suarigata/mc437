@@ -100,7 +100,37 @@ class UsersController < ApplicationController
       if(usuario != nil)
         redirect_to edit_user_path(usuario.id)
       else
-        flash[:notice] = "CPF n&atilde;o consta nos registros"
+        flash[:notice] = "CPF nao consta nos registros"
+      end
+    end
+  end
+  
+  def bloqueio
+    if params[:cpf] != nil
+      usuario = User.find_by_cpf(params[:cpf])
+      if(usuario != nil)
+        if(usuario.status == 1 or usuario.status == 3)
+          usuario.status = usuario.status + 1
+          usuario.save
+          flash[:notice] = "Usuario bloqueado com sucesso"
+        end
+      else
+        flash[:notice] = "CPF nao consta nos registros"
+      end
+    end
+  end
+  
+  def desbloqueio
+    if params[:cpf] != nil
+      usuario = User.find_by_cpf(params[:cpf])
+      if(usuario != nil)
+        if(usuario.status == 2 or usuario.status == 4)
+          usuario.status=usuario.status-1
+          usuario.save
+          flash[:notice] = "Usuario desbloqueado com sucesso"
+        end
+      else
+        flash[:notice] = "CPF nao consta nos registros"
       end
     end
   end

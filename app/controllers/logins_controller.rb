@@ -55,7 +55,7 @@ class LoginsController < ApplicationController
   # "Cria" um login, ou seja, "loga o usuário"
   def create
     login=Login.new(params[:login])
-    if user = authenticate(login)
+    if user = authenticate(login) and user.status == 1
       flash[:notice] = "Voce entrou no sistema"
       # Registra o ID do usuário na sessão para que possa ser recuperado durante outras requisições
       session[:current_user_id] = user.id
@@ -68,7 +68,16 @@ class LoginsController < ApplicationController
       
       redirect_to root_url
     else
-      flash[:notice] = "Erro no login"
+      case user.status
+      when 1
+        flash[:notice] = "Erro no login"
+      when 2
+        flash[:notice] = "Cadastro bloqueado"
+      when 3
+        flash[:notice] = "Cadastro desativado"
+      else
+        flash[:notice] = "Cadastro bloqueado e desativado"
+      end
       
       if user = User.find_by_cpf(login.cpf)
         log = LogGeral.new

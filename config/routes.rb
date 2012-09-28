@@ -1,4 +1,8 @@
 Auth::Application.routes.draw do
+  get "users/desbloqueio"
+
+  get "users/bloqueio"
+
   get "users/alter"
 
   get "home/index"
