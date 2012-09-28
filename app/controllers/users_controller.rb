@@ -94,7 +94,14 @@ class UsersController < ApplicationController
 #    end
   end
   
-  def lock
-    
+  def alter
+    if params[:cpf] != nil
+      usuario = User.find_by_cpf(params[:cpf])
+      if(usuario != nil)
+        redirect_to edit_user_path(usuario.id)
+      else
+        flash[:notice] = "CPF nao consta nos registros"
+      end
+    end
   end
 end

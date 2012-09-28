@@ -1,4 +1,6 @@
 Auth::Application.routes.draw do
+  get "users/alter"
+
   get "home/index"
 
   resources :logins

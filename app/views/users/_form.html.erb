@@ -49,11 +49,11 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.number_field :status %>
+    <%= collection_select(:user, :status, Status.all, :id, :nome) %>
   </div>
   <div class="field">
     <%= f.label :sistema %><br />
-    <%= f.number_field :sistema %>
+    <%= collection_select(:user, :sistema, Sistema.all, :id, :nome) %>
   </div>
   <div class="actions">
     <%= f.submit %>
