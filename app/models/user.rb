@@ -51,10 +51,4 @@ class User < ActiveRecord::Base
   end  
    
   attr_accessible :cpf, :dica_senha, :email_1, :email_2, :nome, :resposta_dica_senha, :rg, :senha, :sistema, :status, :usertype
-  
-  public
-  def authenticate(user,password)
-    # Digest::SHA1.hexdigest(password) ==
-    return User.first(:conditions => "cpf = #{user} and password = #{password}").id
-  end
 end
