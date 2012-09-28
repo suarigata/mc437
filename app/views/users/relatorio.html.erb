@@ -1,24 +1,39 @@
-<% if @_current_user != nil %>
-				  <h1>Relatorios</h1>
-                  <ul class="vmenu">
-                  	<li>
-                      <%= link_to "Autenticacoes realizadas", home_index_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Autenticacoes sucedidas", home_index_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Autenticacoes mal sucedidas", home_index_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Cadastros", home_index_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Usuarios bloqueados por tentativas", home_index_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Usuarios bloqueados por administrador", home_index_path %>
-                    </li>
-                  </ul>
-                  <!--%= @_current_user.id %-->
+<p id="notice"><%= notice %></p>
+
+<h1>Relat&oacute;rio</h1>
+
+<%= form_tag("/users/relatorio", :method => "get") do %>
+  <%= label_tag(:tipolog, "Tipo de Log:") %>
+  <%= select_tag(:tipolog,options_from_collection_for_select(Tipolog.all, :id, :nome)) %>
+  <%= submit_tag("OK") %>
+<% end %>
+
+<br />
+
+<% if @logs != nil %>
+
+<table>
+  <tr>
+    <th>Data</th>
+    <th>Sistema</th>
+    <th>User</th>
+    <th>Tipo Log</th>
+  </tr>
+
+<% @logs.each do |log_geral| %>
+  <tr>
+    <td><%= log_geral.data %></td>
+    
+    <% if log_geral.sistema != nil and Sistema.find(log_geral.sistema) != nil %>
+    	<td><%= Sistema.find(log_geral.sistema).nome %></td>
+    <% else %>
+    	<td></td>
+    <% end %>
+    
+    <td><%= User.find(log_geral.user).nome %></td>
+    <td><%= Tipolog.find(log_geral.tipolog).nome %></td>
+  </tr>
+<% end %>
+</table>
+
 <% end %>

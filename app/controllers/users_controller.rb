@@ -188,4 +188,10 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def relatorio
+    if params[:tipolog] != nil
+      @logs = LogGeral.all(:conditions => "tipolog = #{params[:tipolog]}")
+    end
+  end
 end
