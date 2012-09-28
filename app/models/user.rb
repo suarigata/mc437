@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates_format_of :rg, :with => /\A[0-9]+\Z/
   validates_format_of :cpf, :with => /\A[0-9]+\Z/
-  validates_format_of :nome, :with => /\A[a-zA-Z]+\z/
+  validates_format_of :nome, :with => /\A[a-zA-Z ]+\z/
   
   validate :cpf_digito
   

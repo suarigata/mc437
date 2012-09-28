@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'Usu&aacute;rio foi atualizado com sucesso.' }
+        format.html { redirect_to root_url, notice: 'Usuario foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
