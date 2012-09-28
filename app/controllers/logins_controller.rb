@@ -68,15 +68,17 @@ class LoginsController < ApplicationController
       
       redirect_to root_url
     else
-      case user.status
-      when 1
-        flash[:notice] = "Erro no login"
-      when 2
-        flash[:notice] = "Cadastro bloqueado"
-      when 3
-        flash[:notice] = "Cadastro desativado"
+      if(user != nil)
+        case user.status
+        when 2
+          flash[:notice] = "Cadastro bloqueado"
+        when 3
+          flash[:notice] = "Cadastro desativado"
+        else
+          flash[:notice] = "Cadastro bloqueado e desativado"
+        end
       else
-        flash[:notice] = "Cadastro bloqueado e desativado"
+        flash[:notice] = "Erro no login"
       end
       
       if user = User.find_by_cpf(login.cpf)
