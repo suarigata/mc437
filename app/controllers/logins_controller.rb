@@ -129,7 +129,7 @@ class LoginsController < ApplicationController
   def destroy
     # Remove o id do usuário da sessão
     session[:current_user_id] = nil
-    flash[:notice] = "Voc&ecirc; saiu do sistema"
+    flash[:notice] = "Voce saiu do sistema"
     redirect_to new_login_path
   end
 end

@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   validates_format_of :rg, :with => /\A[0-9]+\Z/
   validates_format_of :cpf, :with => /\A[0-9]+\Z/
   validates_format_of :nome, :with => /\A[a-zA-Z ]+\z/
-  
+  validates_format_of :email_1, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  validates_format_of :email_2, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   validate :cpf_digito
   
   validates_uniqueness_of :cpf, :rg, :email_1

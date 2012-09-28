@@ -9,20 +9,18 @@
                     <li>
                       <%= link_to "Excluir Cadastro", user_path(0), method: :delete, data: { confirm: 'Desativar cadastro?' } %>
                     </li>
-                    <li>
-                      <%= link_to "Usuários", users_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Alterar Usuário", users_alter_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Listar Log", log_gerals_path %>
-                    </li>
+                                
+                <% if @_current_user.usertype < 3 %>    
                     <li>
                       <%= link_to "Bloquear Usuario", users_bloqueio_path %>
                     </li>
                     <li>
                       <%= link_to "Desbloquear Usuario", users_desbloqueio_path %>
+                    </li>
+                    
+                   	<% if @_current_user.usertype < 2 %> 
+                    	<li>
+                      <%= link_to "Alterar Usuário", users_alter_path %>
                     </li>
                     <li>
                       <%= link_to "Criar Sistema", new_sistema_path %>
@@ -30,15 +28,8 @@
                     <li>
                       <%= link_to "Relatorios", users_relatorio_path %>
                     </li>
-                    <li>
-                      <%= link_to "Tipos de Usuários", usertypes_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Status", statuses_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Tipo Log", tipologs_path %>
-                    </li>
+                   <% end %> 
+               <% end %>    
                     <li>
                       <%= link_to "Sair", login_path(0), method: :delete, data: { confirm: 'Deslogar?' } %>
                     </li>
