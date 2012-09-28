@@ -1,7 +1,7 @@
 <% if @_current_user != nil %>
                   <ul class="vmenu">
                     <li>
-                      <%= link_to "In&iacute;cio", home_index_path %>
+                      <%= link_to "Início", home_index_path %>
                     </li>
                     <li>
                       <%= link_to "Alterar Cadastro", edit_user_path(@_current_user.id ) %>
@@ -10,10 +10,10 @@
                       <%= link_to "Excluir Cadastro", user_path(0), method: :delete, data: { confirm: 'Desativar cadastro?' } %>
                     </li>
                     <li>
-                      <%= link_to "Usu&aacute;rios", users_path %>
+                      <%= link_to "Usuários", users_path %>
                     </li>
                     <li>
-                      <%= link_to "Alterar Usu&aacute;rio", users_alter_path %>
+                      <%= link_to "Alterar Usuário", users_alter_path %>
                     </li>
                     <li>
                       <%= link_to "Listar Log", log_gerals_path %>
@@ -22,7 +22,7 @@
                       <%= link_to "Criar Sistema", new_sistema_path %>
                     </li>
                     <li>
-                      <%= link_to "Tipos de Usu&aacute;rios", usertypes_path %>
+                      <%= link_to "Tipos de Usuários", usertypes_path %>
                     </li>
                     <li>
                       <%= link_to "Status", statuses_path %>

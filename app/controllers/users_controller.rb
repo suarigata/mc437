@@ -54,7 +54,7 @@ class UsersController < ApplicationController
         log.user=@user.id
         log.save
         
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usu&aacute;rio foi salvo com sucesso.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Usu&aacute;rio foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     @_current_user.status = 3
     @_current_user.save
     session[:current_user_id] = nil
-    flash[:notice] = "Voce desativou sua conta com sucesso."
+    flash[:notice] = "Voc&ecirc; desativou sua conta com sucesso."
     redirect_to new_login_path
 
 #    respond_to do |format|
@@ -100,7 +100,7 @@ class UsersController < ApplicationController
       if(usuario != nil)
         redirect_to edit_user_path(usuario.id)
       else
-        flash[:notice] = "CPF nao consta nos registros"
+        flash[:notice] = "CPF n&atilde;o consta nos registros"
       end
     end
   end

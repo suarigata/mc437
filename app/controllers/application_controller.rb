@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   def require_login
     unless logged_in?
-      flash[:error] = "Voce deve estar logado para acessar esta secao"
+      flash[:error] = "Voc&ecirc; deve estar logado para acessar esta se&ccedil;&atilde;o"
       redirect_to new_login_url # Previne que a ação corrente seja executada
       end
   end

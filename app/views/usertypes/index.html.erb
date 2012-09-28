@@ -13,11 +13,11 @@
     <td><%= usertype.nome %></td>
     <td><%= link_to 'Mostrar', usertype %></td>
     <td><%= link_to 'Editar', edit_usertype_path(usertype) %></td>
-    <td><%= link_to 'Apagar', usertype, method: :delete, data: { confirm: 'Voc&ecirc; tem certeza?' } %></td>
+    <td><%= link_to 'Apagar', usertype, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Novo Tipo de Usu&aacute;rio', new_usertype_path %>
+<%= link_to 'Novo Tipo de Usuário', new_usertype_path %>

@@ -44,7 +44,7 @@ class SistemasController < ApplicationController
 
     respond_to do |format|
       if @sistema.save
-        format.html { redirect_to @sistema, notice: 'Sistema was successfully created.' }
+        format.html { redirect_to @sistema, notice: 'Sistema foi salvo com sucesso.' }
         format.json { render json: @sistema, status: :created, location: @sistema }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SistemasController < ApplicationController
 
     respond_to do |format|
       if @sistema.update_attributes(params[:sistema])
-        format.html { redirect_to @sistema, notice: 'Sistema was successfully updated.' }
+        format.html { redirect_to @sistema, notice: 'Sistema foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -44,7 +44,7 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
+        format.html { redirect_to @status, notice: 'Status foi salvo com sucesso.' }
         format.json { render json: @status, status: :created, location: @status }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to @status, notice: 'Status was successfully updated.' }
+        format.html { redirect_to @status, notice: 'Status foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

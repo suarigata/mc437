@@ -82,7 +82,7 @@ class LoginsController < ApplicationController
         if numero > 4 and (user.status = 1 or user.status = 3)
           user.status+=1
           user.save
-          flash[:notice] = "Usuario bloqueado por errar cinco vezes a senha"
+          flash[:notice] = "Usu&aacute;rio bloqueado por errar cinco vezes a senha"
         end
       end
       
@@ -97,7 +97,7 @@ class LoginsController < ApplicationController
 
     respond_to do |format|
       if @login.update_attributes(params[:login])
-        format.html { redirect_to @login, notice: 'Login was successfully updated.' }
+        format.html { redirect_to @login, notice: 'Login foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -109,7 +109,7 @@ class LoginsController < ApplicationController
   def destroy
     # Remove o id do usuário da sessão
     session[:current_user_id] = nil
-    flash[:notice] = "Voce saiu do sistema"
+    flash[:notice] = "Voc&ecirc; saiu do sistema"
     redirect_to new_login_path
   end
 end
