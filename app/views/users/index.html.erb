@@ -3,37 +3,41 @@
 <table>
   <tr>
     <th>CPF</th>
-    <th>Senha</th>
+    <!-- <th>Senha</th> -->
     <th>Nome</th>
     <th>RG</th>
-    <th>Dica senha</th>
-    <th>Resposta dica senha</th>
+    <!-- <th>Dica senha</th> -->
+    <!-- <th>Resposta dica senha</th> -->
     <th>Email 1</th>
     <th>Email 2</th>
     <th>Tipo Usu&aacute;rio</th>
     <th>Status</th>
     <th>Sistema</th>
+    <!--
     <th></th>
     <th></th>
     <th></th>
+    -->
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.cpf %></td>
-    <td><%= user.senha %></td>
+    <!-- <td><%= user.senha %></td> -->
     <td><%= user.nome %></td>
     <td><%= user.rg %></td>
-    <td><%= user.dica_senha %></td>
-    <td><%= user.resposta_dica_senha %></td>
+    <!-- <td><%= user.dica_senha %></td> -->
+    <!-- <td><%= user.resposta_dica_senha %></td> -->
     <td><%= user.email_1 %></td>
     <td><%= user.email_2 %></td>
     <td><%= user.usertype %></td>
     <td><%= user.status %></td>
     <td><%= user.sistema %></td>
-    <td><%= link_to 'Mostrar', user %></td>
+    <!--
+    <td><%= link_to image_tag("http://www.od-design.com.br/lojax/imgs/icone_lupa.png", :border => 0), user %></td>
     <td><%= link_to 'Editar', edit_user_path(user) %></td>
     <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+    -->
   </tr>
 <% end %>
 </table>
