@@ -55,7 +55,7 @@ class LoginsController < ApplicationController
   # "Cria" um login, ou seja, "loga o usuário"
   def create
     login=Login.new(params[:login])
-    if user = authenticate(login)
+    if user = authenticate(login) and user.status == 1
       flash[:notice] = "Voce entrou no sistema"
       # Registra o ID do usuário na sessão para que possa ser recuperado durante outras requisições
       session[:current_user_id] = user.id
@@ -68,7 +68,16 @@ class LoginsController < ApplicationController
       
       redirect_to root_url
     else
-      flash[:notice] = "Erro no login"
+      case user.status
+      when 1
+        flash[:notice] = "Erro no login"
+      when 2
+        flash[:notice] = "Cadastro bloqueado"
+      when 3
+        flash[:notice] = "Cadastro desativado"
+      else
+        flash[:notice] = "Cadastro bloqueado e desativado"
+      end
       
       if user = User.find_by_cpf(login.cpf)
         log = LogGeral.new
@@ -76,12 +85,20 @@ class LoginsController < ApplicationController
         log.tipolog=2
         log.user=user.id
         log.save
+        
+        log = LogGeral.last(:conditions => ["user = :usuario and tipolog = 1",{:usuario => user.id}])
+        numero = LogGeral.all(:conditions => ["user = :usuario and tipolog = 2 and data >= :logdata",{:usuario => user.id, :logdata => log.data}]).length
+        if numero > 4 and (user.status = 1 or user.status = 3)
+          user.status+=1
+          user.save
+          flash[:notice] = "Usu&aacute;rio bloqueado por errar cinco vezes a senha"
+        end
       end
       
       redirect_to new_login_path
     end
   end
-
+  
   # PUT /logins/1
   # PUT /logins/1.json
   def update
@@ -89,7 +106,7 @@ class LoginsController < ApplicationController
 
     respond_to do |format|
       if @login.update_attributes(params[:login])
-        format.html { redirect_to @login, notice: 'Login was successfully updated.' }
+        format.html { redirect_to @login, notice: 'Login foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -101,7 +118,7 @@ class LoginsController < ApplicationController
   def destroy
     # Remove o id do usuário da sessão
     session[:current_user_id] = nil
-    flash[:notice] = "Voce saiu do sistema"
+    flash[:notice] = "Voc&ecirc; saiu do sistema"
     redirect_to new_login_path
   end
 end

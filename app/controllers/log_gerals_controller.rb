@@ -44,7 +44,7 @@ class LogGeralsController < ApplicationController
 
     respond_to do |format|
       if @log_geral.save
-        format.html { redirect_to @log_geral, notice: 'Log geral was successfully created.' }
+        format.html { redirect_to @log_geral, notice: 'Log geral foi salvo com sucesso.' }
         format.json { render json: @log_geral, status: :created, location: @log_geral }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class LogGeralsController < ApplicationController
 
     respond_to do |format|
       if @log_geral.update_attributes(params[:log_geral])
-        format.html { redirect_to @log_geral, notice: 'Log geral was successfully updated.' }
+        format.html { redirect_to @log_geral, notice: 'Log geral foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

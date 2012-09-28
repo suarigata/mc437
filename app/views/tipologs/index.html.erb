@@ -1,4 +1,4 @@
-<h1>Listing tipologs</h1>
+<h1>Lista Tipos de Log</h1>
 
 <table>
   <tr>
@@ -11,13 +11,13 @@
 <% @tipologs.each do |tipolog| %>
   <tr>
     <td><%= tipolog.nome %></td>
-    <td><%= link_to 'Show', tipolog %></td>
-    <td><%= link_to 'Edit', edit_tipolog_path(tipolog) %></td>
-    <td><%= link_to 'Destroy', tipolog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', tipolog %></td>
+    <td><%= link_to 'Editar', edit_tipolog_path(tipolog) %></td>
+    <td><%= link_to 'Apagar', tipolog, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Tipolog', new_tipolog_path %>
+<%= link_to 'Novo Tipo de Log', new_tipolog_path %>

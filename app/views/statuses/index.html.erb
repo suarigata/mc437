@@ -1,4 +1,4 @@
-<h1>Listing statuses</h1>
+<h1>Lista de Status</h1>
 
 <table>
   <tr>
@@ -11,13 +11,13 @@
 <% @statuses.each do |status| %>
   <tr>
     <td><%= status.nome %></td>
-    <td><%= link_to 'Show', status %></td>
-    <td><%= link_to 'Edit', edit_status_path(status) %></td>
-    <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', status %></td>
+    <td><%= link_to 'Editar', edit_status_path(status) %></td>
+    <td><%= link_to 'Apagar', status, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Status', new_status_path %>
+<%= link_to 'Novo Status', new_status_path %>

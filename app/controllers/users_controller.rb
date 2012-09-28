@@ -104,7 +104,7 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
 #  def lembrar_senha
 #  end
   

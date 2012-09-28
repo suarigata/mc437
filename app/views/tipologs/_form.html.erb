@@ -1,7 +1,7 @@
 <%= form_for(@tipolog) do |f| %>
   <% if @tipolog.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tipolog.errors.count, "error") %> prohibited this tipolog from being saved:</h2>
+      <h2><%= pluralize(@tipolog.errors.count, "error") %> Proibido este tipo de log de ser salvo:</h2>
 
       <ul>
       <% @tipolog.errors.full_messages.each do |msg| %>

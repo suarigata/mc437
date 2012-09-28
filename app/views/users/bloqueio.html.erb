@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bloquear Usu&aacute;rio</h1>
+
+<%= form_tag("/users/bloqueio", :method => "get") do %>
+  <%= label_tag(:cpf, "CPF:") %>
+  <%= text_field_tag(:cpf) %>
+  <%= submit_tag("OK") %>
+<% end %>

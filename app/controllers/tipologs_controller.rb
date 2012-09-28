@@ -44,7 +44,7 @@ class TipologsController < ApplicationController
 
     respond_to do |format|
       if @tipolog.save
-        format.html { redirect_to @tipolog, notice: 'Tipolog was successfully created.' }
+        format.html { redirect_to @tipolog, notice: 'Tipo log foi salvo com sucesso.' }
         format.json { render json: @tipolog, status: :created, location: @tipolog }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class TipologsController < ApplicationController
 
     respond_to do |format|
       if @tipolog.update_attributes(params[:tipolog])
-        format.html { redirect_to @tipolog, notice: 'Tipolog was successfully updated.' }
+        format.html { redirect_to @tipolog, notice: 'Tipo log foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

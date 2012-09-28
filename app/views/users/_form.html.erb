@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> Proibido este usu&aacute;rio de ser salvo:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -56,6 +56,6 @@
     <%= collection_select(:user, :sistema, Sistema.all, :id, :nome) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit("Salvar")%>
   </div>
 <% end %>
