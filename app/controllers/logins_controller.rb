@@ -76,12 +76,20 @@ class LoginsController < ApplicationController
         log.tipolog=2
         log.user=user.id
         log.save
+        
+        log = LogGeral.last(:conditions => ["user = :usuario and tipolog = 1",{:usuario => user.id}])
+        numero = LogGeral.all(:conditions => ["user = :usuario and tipolog = 2 and data >= :logdata",{:usuario => user.id, :logdata => log.data}]).length
+        if numero > 4 and (user.status = 1 or user.status = 3)
+          user.status+=1
+          user.save
+          flash[:notice] = "Usuario bloqueado por errar cinco vezes a senha"
+        end
       end
       
       redirect_to new_login_path
     end
   end
-
+  
   # PUT /logins/1
   # PUT /logins/1.json
   def update
