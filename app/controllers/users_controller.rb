@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  skip_before_filter :require_login, :only => [:new, :create]
+  skip_before_filter :require_login, :only => [:new, :create, :lembrar_senha, :mostrarDica]
   
   # GET /users
   # GET /users.json
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
         log.user=@user.id
         log.save
         
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usu&aacute;rio foi salvo com sucesso.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Usu&aacute;rio foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     @_current_user.status = 3
     @_current_user.save
     session[:current_user_id] = nil
-    flash[:notice] = "Voce desativou sua conta com sucesso."
+    flash[:notice] = "Voc&ecirc; desativou sua conta com sucesso."
     redirect_to new_login_path
 
 #    respond_to do |format|
@@ -99,6 +99,64 @@ class UsersController < ApplicationController
       usuario = User.find_by_cpf(params[:cpf])
       if(usuario != nil)
         redirect_to edit_user_path(usuario.id)
+      else
+        flash[:notice] = "CPF nao consta nos registros"
+      end
+    end
+  end
+  
+#  def lembrar_senha
+#  end
+  
+  def mostrarDica
+    usuario = User.find_by_cpf(params[:cpf])
+    if(usuario != nil)
+      if params[:senha] != nil and params[:resposta_dica] != nil 
+        if params[:resposta_dica] == usuario.resposta_dica_senha and params[:senha].length >= 6
+          usuario.senha = params[:senha]
+          usuario.save
+          flash[:notice] = "Senha alterada com sucesso"
+          redirect_to new_login_path #tela login ou entra logado?
+        else
+          if params[:senha].length < 6
+            flash[:notice] = "Senha deve conter no minimo 6 caracteres"
+          else
+            flash[:notice] = "Resposta incorreta"
+          end 
+        end
+      end
+      @cpf = usuario.cpf
+      @dica = usuario.dica_senha
+    else
+      flash[:notice] = "CPF nao consta nos registros"
+      redirect_to users_lembrar_senha_path
+    end
+  end
+  
+  def bloqueio
+    if params[:cpf] != nil
+      usuario = User.find_by_cpf(params[:cpf])
+      if(usuario != nil)
+        if(usuario.status == 1 or usuario.status == 3)
+          usuario.status = usuario.status + 1
+          usuario.save
+          flash[:notice] = "Usuario bloqueado com sucesso"
+        end
+      else
+        flash[:notice] = "CPF nao consta nos registros"
+      end
+    end
+  end
+  
+  def desbloqueio
+    if params[:cpf] != nil
+      usuario = User.find_by_cpf(params[:cpf])
+      if(usuario != nil)
+        if(usuario.status == 2 or usuario.status == 4)
+          usuario.status=usuario.status-1
+          usuario.save
+          flash[:notice] = "Usuario desbloqueado com sucesso"
+        end
       else
         flash[:notice] = "CPF nao consta nos registros"
       end

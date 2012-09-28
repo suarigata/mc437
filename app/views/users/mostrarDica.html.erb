@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pergunta</h1>
+
+<%= form_tag("/users/mostrarDica", :method => "get") do %>
+  <%= label_tag(:dica_senha, @dica) %>
+  <br />
+  <%= text_field_tag(:resposta_dica) %>
+  <br />
+  <%= label_tag("Digite a nova senha") %>
+  <br />
+  <%= text_field_tag(:senha) %>
+  <br />
+  <%= submit_tag("Trocar Senha") %>
+  <%= hidden_field_tag(:cpf, @cpf) %>
+<% end %>

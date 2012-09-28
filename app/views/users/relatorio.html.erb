@@ -1,0 +1,24 @@
+<% if @_current_user != nil %>
+				  <h1>Relatorios</h1>
+                  <ul class="vmenu">
+                  	<li>
+                      <%= link_to "Autenticacoes realizadas", home_index_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Autenticacoes sucedidas", home_index_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Autenticacoes mal sucedidas", home_index_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Cadastros", home_index_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Usuarios bloqueados por tentativas", home_index_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Usuarios bloqueados por administrador", home_index_path %>
+                    </li>
+                  </ul>
+                  <!--%= @_current_user.id %-->
+<% end %>
