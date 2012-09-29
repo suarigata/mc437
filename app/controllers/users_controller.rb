@@ -112,7 +112,6 @@ class UsersController < ApplicationController
 
 #  def lembrar_senha
 #  end
-  
   def mostrarDica
     usuario = User.find_by_cpf(params[:cpf])
     if(usuario != nil)
