@@ -192,7 +192,7 @@ class UsersController < ApplicationController
     if params[:tipolog] != nil
       
       startd = Date.civil(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
-      endd = Date.civil(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+      endd = Date.civil(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i).end_of_day()
       
       @logs = LogGeral.all(:conditions => ["tipolog = ? and data >= ? AND data <= ?", params[:tipolog], startd, endd])
     end
