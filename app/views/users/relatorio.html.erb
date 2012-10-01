@@ -5,6 +5,10 @@
 <%= form_tag("/users/relatorio", :method => "get") do %>
   <%= label_tag(:tipolog, "Tipo de Log:") %>
   <%= select_tag(:tipolog,options_from_collection_for_select(Tipolog.all, :id, :nome)) %>
+  <%= label_tag(:start_date, "Data inicial:") %>
+  <%= select_date Date.today, :prefix => :start_date %>
+  <%= label_tag(:end_date, "Data final:") %>
+  <%= select_date Date.today, :prefix => :end_date %>
   <%= submit_tag("OK") %>
 <% end %>
 
