@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926031421) do
+ActiveRecord::Schema.define(:version => 20121028193514) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "response"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "log_gerals", :force => true do |t|
     t.datetime "data"
@@ -63,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120926031421) do
     t.integer  "sistema"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "logado"
   end
 
   create_table "usertypes", :force => true do |t|

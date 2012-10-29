@@ -1,4 +1,5 @@
 Auth::Application.routes.draw do
+
   get "users/desbloqueio"
 
   get "users/bloqueio"
@@ -12,6 +13,10 @@ Auth::Application.routes.draw do
   get "users/alter"
 
   get "home/index"
+  
+  get "authentications/loga"
+  
+  get "authentications/desloga"
 
   resources :logins
 

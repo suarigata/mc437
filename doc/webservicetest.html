@@ -1,0 +1,18 @@
+<script src="../vendor/assets/javascript/jquery-1.8.2.min.js"></script>
+<script>
+$(function() {
+
+$.ajax({
+//   type: "get",
+   url: "localhost:3000/logins/new.json",
+   dataType: 'json',
+//   data: "cpf=33730225847&senha=alexalex",
+//   async: false,
+   success: function(ret){
+     alert(ret);
+   }
+});
+
+});
+// staff03.lab.ic.unicamp.br
+</script>

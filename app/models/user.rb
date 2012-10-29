@@ -51,5 +51,5 @@ class User < ActiveRecord::Base
     end
   end  
    
-  attr_accessible :cpf, :dica_senha, :email_1, :email_2, :nome, :resposta_dica_senha, :rg, :senha, :sistema, :status, :usertype
+  attr_accessible :cpf, :dica_senha, :email_1, :email_2, :nome, :resposta_dica_senha, :rg, :senha, :sistema, :status, :usertype, :logado
 end
